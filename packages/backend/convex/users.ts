@@ -24,6 +24,11 @@ export const add = mutation({
       throw new Error("Unauthorized");
     }
 
+    const orgId = identity.orgId as string;
+    if(!orgId) {
+      throw new Error("Missing organization");
+    }
+
     const userId = await ctx.db.insert("users", args);
     return userId;
   }
