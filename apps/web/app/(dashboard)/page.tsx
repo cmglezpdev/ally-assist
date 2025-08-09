@@ -1,5 +1,7 @@
 'use client'
 import { useMutation, useQuery } from "convex/react";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+
 import { api } from "@workspace/backend/_generated/api";
 import { Button } from '@workspace/ui/components/button';
 
@@ -10,6 +12,8 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
       <h1 className="text-2xl font-bold mb-3">apps/web</h1>
+      <UserButton />
+      <OrganizationSwitcher hidePersonal={true} />
 
       <form onSubmit={async (e) => {
         e.preventDefault();
